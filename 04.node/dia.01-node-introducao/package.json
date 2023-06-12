@@ -2,11 +2,15 @@
   "name": "dia.01-node-introducao",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bmi.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bmi.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "1.4.10"
+  }
 }
