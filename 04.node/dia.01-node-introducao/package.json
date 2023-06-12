@@ -2,10 +2,10 @@
   "name": "dia.01-node-introducao",
   "version": "1.0.0",
   "description": "",
-  "main": "bmi.js",
+  "main": "simpsons.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bmi.js"
+    "start": "node simpsons.js"
   },
   "keywords": [],
   "author": "",

@@ -1,26 +1,17 @@
 const readline = require('readline-sync');
 
 
-function bmi(height, weight) {
-    if (height > 3) {
-    const newHeight = height / 100
-    return console.log(weight / (newHeight * newHeight))
-    }
-  return console.log(weight / (height * height))
+function handleBMI(weight, height) {
+  console.log(`Weight: ${weight}, Height: ${height}`);
+
+  const heightInMeters = height / 100;
+  const heightSquared = heightInMeters ** 2;
+
+  const bmi = (weight / heightSquared);
+
+  return bmi;
 }
 
-function main() {
-    const height = readline.questionFloat('What’s your height? ');
-    const weight = readline.questionFloat('What’s your weight? ');
-
-    const result = bmi(height, weight);
-
-    const bmiResult = bmi3(result);
-
-    console.log(result);
-    console.log(bmiResult);
-
-}
 
 const BMI_MAX_AND_MIN = {
     'Underweight': {
@@ -49,18 +40,27 @@ const BMI_MAX_AND_MIN = {
     },
   };
 
-function bmi3(bmi) {
-    const statuses = Object.keys(BMI_MAX_AND_MIN);
+function handleBMIResult(bmi) {
+  const statuses = Object.keys(BMI_MAX_AND_MIN);
 
-    const resultFind = statuses.find((status) => {
-    const { maxBMI, minBMI } = BMI_MAX_AND_MIN[status];
+  const resultFind = statuses.find((status) => {
+    const { maxBMI, minBMI } = BMI_MAX_AND_MIN[status]; 
 
     return bmi >= minBMI && bmi <= maxBMI;
-    
-    });
+  });
 
   return resultFind;
+}
 
+function main() {
+  const weight = readline.questionFloat('What\'s your weight? (kg) ');
+  const height = readline.questionInt('What\'s your height? (cm) ');
+
+  const bmi = handleBMI(weight, height);
+  const bmiResult = handleBMIResult(bmi);
+
+   console.log(`BMI: ${bmi}`);
+   console.log(bmiResult);
 }
 
 main();
